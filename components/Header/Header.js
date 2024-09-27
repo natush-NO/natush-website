@@ -1,6 +1,6 @@
 import {
   StyledHeader,
-  StyledNavNeader,
+  StyledNavHeader,
   StyledNavItems,
   StyledNavItem,
   StyledNavLink,
@@ -10,56 +10,64 @@ import {
   StyledSocialImage,
 } from "./StyledHeader";
 
-export default function Header() {
+export default function Header({ isBack }) {
   return (
     <StyledHeader>
-      <StyledNavNeader>
+      <StyledNavHeader>
         <StyledNavItems>
           <StyledNavItem>
             <StyledNavLink href="#">About me</StyledNavLink>
           </StyledNavItem>
           <StyledNavItem>
-            <StyledNavLink href="#">Knowledge</StyledNavLink>
+            <StyledNavLink href="#">My projects</StyledNavLink>
           </StyledNavItem>
           <StyledNavItem>
-            <StyledSocialItems>
-              <StyledSocialItem>
-                <StyledSocialLink href="#" target="_blank">
-                  <StyledSocialImage
-                    src="/images/facebook_logo.webp"
-                    alt="Facebook"
-                    fill
-                    sizes="30px"
-                  />
-                </StyledSocialLink>
-              </StyledSocialItem>
-              <StyledSocialItem>
-                <StyledSocialLink href="instagram_icon.webp" target="_blank">
-                  <StyledSocialImage
-                    src="/images/instagram_logo.webp"
-                    alt="Instagram"
-                    fill
-                    sizes="30px"
-                  />
-                </StyledSocialLink>
-              </StyledSocialItem>
-              <StyledSocialItem>
-                <StyledSocialLink
-                  href="https://www.linkedin.com/in/nataliia-osman-1a48152b9/"
-                  target="_blank"
-                >
-                  <StyledSocialImage
-                    src="/images/linkedin-logo.webp"
-                    alt="LinkedIn"
-                    fill
-                    sizes="30px"
-                  />
-                </StyledSocialLink>
-              </StyledSocialItem>
-            </StyledSocialItems>
+            {isBack ? (
+              <StyledNavLink href="/">Back</StyledNavLink>
+            ) : (
+              <StyledNavLink href="/certificates/certificates">
+                Certificates
+              </StyledNavLink>
+            )}
           </StyledNavItem>
         </StyledNavItems>
-      </StyledNavNeader>
+
+        <StyledSocialItems>
+          <StyledSocialItem>
+            <StyledSocialLink href="#">
+              <StyledSocialImage
+                src="/images/facebook_logo.webp"
+                alt="Facebook"
+                fill
+                sizes="50px"
+              />
+            </StyledSocialLink>
+          </StyledSocialItem>
+          <StyledSocialItem>
+            <StyledSocialLink href="instagram_icon.webp" target="_blank">
+              <StyledSocialImage
+                src="/images/instagram_logo.webp"
+                alt="Instagram"
+                fill
+                sizes="50px"
+              />
+            </StyledSocialLink>
+          </StyledSocialItem>
+          <StyledSocialItem>
+            <StyledSocialLink
+              href="https://www.linkedin.com/in/nataliia-osman-1a48152b9/"
+              target="_blank"
+            >
+              <StyledSocialImage
+                src="/images/linkedin-logo.webp"
+                alt="LinkedIn"
+                fill
+                sizes="50px"
+              />
+            </StyledSocialLink>
+          </StyledSocialItem>
+        </StyledSocialItems>
+      </StyledNavHeader>
     </StyledHeader>
   );
 }

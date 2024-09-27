@@ -43,10 +43,13 @@ body {
   line-height: 1;
   font-family: system-ui;
   color: white;
-    min-height: 100%;
-    overflow: clip;
-    // background-color: #484848;
-    background: url("/background/img_3.jpg") center center  no-repeat;
+  min-height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: ${({ $backgroundImage }) =>
+    $backgroundImage
+      ? `url(${$backgroundImage}) center center no-repeat`
+      : "url(/background/img_4.jpg)"};
     background-size: cover;
 
 &::after {
@@ -59,30 +62,6 @@ body {
   background: rgba(255, 255, 255, 0.1); 
   z-index: -1; 
 }
-
-  //     &::before {
-  //     content: ""; 
-  //     position: absolute; 
-  //     top: 0; 
-  //     right: 0; 
-  //     width: 400px;
-  //     height: 400px; 
-  //     border-radius: 36% 64% 0% 100% / 0% 0% 100% 100%;
-  //     background-color: #2F4F4F;
-  //   }
-
-  // &::after {
-  //     content: ""; 
-  //     position: absolute; 
-  //     bottom: 0; 
-  //     left: 0; 
-  //     width: 400px;
-  //     height: 300px; 
-  //     border-radius:11% 89% 100% 0% / 0% 100% 0% 100%;
-  //     background-color: #aad0c3;
-  //   }
-  }
-
 
 
 /* FORM */
@@ -102,30 +81,6 @@ textarea {
 
 label {
   display: inline-block;
-}
-
-// button {
-//   background-color: #3d3d3d;
-//   color: #fff;
-//   border: none;
-//   border-radius: 5px;
-//   font-size: 16px;
-//   transition: all 0.2s;
-// }
-
-// @media (hover: hover) {
-//   button:hover {
-//     background-color: #555555;
-//     transition: all 0.4s;
-//   }
-// }
-
-// button:focus {
-//   border: 1px solid #3d3d3d;
-//   outline: none;
-// }
-
-
 
 button,
 select,
