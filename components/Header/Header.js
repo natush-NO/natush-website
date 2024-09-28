@@ -1,42 +1,66 @@
+import { useRouter } from "next/router";
 import {
   StyledHeader,
   StyledNavHeader,
   StyledNavItems,
   StyledNavItem,
-  StyledNavLink,
+  StyledNavButton,
   StyledSocialItems,
   StyledSocialItem,
   StyledSocialLink,
   StyledSocialImage,
 } from "./StyledHeader";
 
-export default function Header({ isBack }) {
+export default function Header({ isBack, handleShowText, pageCertificate }) {
+  const router = useRouter();
+
   return (
     <StyledHeader>
       <StyledNavHeader>
         <StyledNavItems>
           <StyledNavItem>
-            <StyledNavLink href="#">About me</StyledNavLink>
+            <StyledNavButton
+              onClick={() => {
+                if (pageCertificate) {
+                  router.push("/").then(() => handleShowText());
+                } else {
+                  handleShowText();
+                }
+              }}
+              type="button"
+              id="backTop"
+            >
+              About me
+            </StyledNavButton>
           </StyledNavItem>
           <StyledNavItem>
-            <StyledNavLink href="#">My projects</StyledNavLink>
+            <StyledNavButton href="#">My projects</StyledNavButton>
           </StyledNavItem>
           <StyledNavItem>
             {isBack ? (
-              <StyledNavLink href="/">Back</StyledNavLink>
+              <StyledNavButton onClick={() => router.push("/")}>
+                Back
+              </StyledNavButton>
             ) : (
-              <StyledNavLink href="/pageCertificates/pageCertificates">
+              <StyledNavButton
+                onClick={() =>
+                  router.push("/pageCertificates/pageCertificates")
+                }
+              >
                 Certificates
-              </StyledNavLink>
+              </StyledNavButton>
             )}
           </StyledNavItem>
         </StyledNavItems>
 
         <StyledSocialItems>
           <StyledSocialItem>
-            <StyledSocialLink href="https://www.facebook.com/share/1pWFnzSbYqtE1Weo/?mibextid=LQQJ4d">
+            <StyledSocialLink
+              href="https://www.facebook.com/share/1pWFnzSbYqtE1Weo/?mibextid=LQQJ4d"
+              target="_blank"
+            >
               <StyledSocialImage
-                src="/images/facebook_logo.webp"
+                src="/logos/facebook_logo.webp"
                 alt="Facebook"
                 fill
                 sizes="50px"
@@ -49,7 +73,7 @@ export default function Header({ isBack }) {
               target="_blank"
             >
               <StyledSocialImage
-                src="/images/instagram_logo.webp"
+                src="/logos/instagram_logo.webp"
                 alt="Instagram"
                 fill
                 sizes="50px"
@@ -62,7 +86,7 @@ export default function Header({ isBack }) {
               target="_blank"
             >
               <StyledSocialImage
-                src="/images/linkedin-logo.webp"
+                src="/logos/linkedin-logo.webp"
                 alt="LinkedIn"
                 fill
                 sizes="50px"

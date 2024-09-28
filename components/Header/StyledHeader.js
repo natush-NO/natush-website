@@ -1,4 +1,4 @@
-import { styled } from "styled-components";
+import styled from "styled-components";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -39,13 +39,18 @@ export const StyledNavItems = styled.ul`
 
 export const StyledNavItem = styled.li`
   transition: all 0.6s;
+  background-color: rgba(30, 43, 53, 0.5);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 
   &:hover {
     color: blue;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
 `;
 
-export const StyledNavLink = styled(Link)`
+export const StyledNavButton = styled.button`
+  padding: 15px;
   cursor: pointer;
 `;
 
@@ -58,6 +63,17 @@ export const StyledSocialItems = styled.ul`
 
 export const StyledSocialItem = styled.li`
   margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: all 0.5s;
+
+
+  @media (hover: hover) {
+    &:hover {
+      opacity: 0.6;
+    transition: all 0.7s;
+        box-shadow: none;
+    }
 `;
 
 export const StyledSocialLink = styled(Link)`
@@ -66,14 +82,6 @@ export const StyledSocialLink = styled(Link)`
   overflow: hidden;
   border-radius: 4px;
   position: relative;
-  transition: all 0.5s;
-
-  @media (hover: hover) {
-    &:hover {
-      opacity: 0.4;
-      transition: all 0.7s;
-    }
-  }
 
   @media (min-width: 1000px) {
     width: 50px;
