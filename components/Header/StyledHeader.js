@@ -4,9 +4,9 @@ import Link from "next/link";
 
 export const StyledHeader = styled.header`
   min-height: 100px;
-
-  padding: 40px 0 50px 0;
+  padding: 40px;
   font-size: 20px;
+  margin-bottom: 15px;
 `;
 
 export const StyledNavHeader = styled.nav`
@@ -17,7 +17,7 @@ export const StyledNavHeader = styled.nav`
 
 export const StyledNavItems = styled.ul`
   font-size: 16px;
-  max-width: 400px;
+  max-width: 350px;
   display: flex;
   justify-content: space-between;
   gap: 5px;
@@ -26,7 +26,7 @@ export const StyledNavItems = styled.ul`
   margin: 0 auto;
   margin-bottom: 40px;
 
-  @media (min-width: 600px) {
+  @media (min-width: 650px) {
     max-width: 500px;
     font-size: 18px;
   }
@@ -69,7 +69,7 @@ export const StyledSocialLink = styled(Link)`
   transition: all 0.5s;
 
   @media (hover: hover) {
-    :hover {
+    &:hover {
       opacity: 0.4;
       transition: all 0.7s;
     }

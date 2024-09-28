@@ -25,7 +25,7 @@ export default function Header({ isBack }) {
             {isBack ? (
               <StyledNavLink href="/">Back</StyledNavLink>
             ) : (
-              <StyledNavLink href="/certificates/certificates">
+              <StyledNavLink href="/pageCertificates/pageCertificates">
                 Certificates
               </StyledNavLink>
             )}
@@ -34,7 +34,7 @@ export default function Header({ isBack }) {
 
         <StyledSocialItems>
           <StyledSocialItem>
-            <StyledSocialLink href="#">
+            <StyledSocialLink href="https://www.facebook.com/share/1pWFnzSbYqtE1Weo/?mibextid=LQQJ4d">
               <StyledSocialImage
                 src="/images/facebook_logo.webp"
                 alt="Facebook"
@@ -44,7 +44,10 @@ export default function Header({ isBack }) {
             </StyledSocialLink>
           </StyledSocialItem>
           <StyledSocialItem>
-            <StyledSocialLink href="instagram_icon.webp" target="_blank">
+            <StyledSocialLink
+              href="https://www.instagram.com/natali_othman?igsh=M2l2NmxpZzRwNDFk&utm_source=qr"
+              target="_blank"
+            >
               <StyledSocialImage
                 src="/images/instagram_logo.webp"
                 alt="Instagram"

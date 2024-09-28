@@ -39,6 +39,7 @@ h6 {
 html {
   font-size: 10px;
 }
+  
 body {
   line-height: 1;
   font-family: system-ui;
@@ -49,8 +50,9 @@ body {
   background: ${({ $backgroundImage }) =>
     $backgroundImage
       ? `url(${$backgroundImage}) center center no-repeat`
-      : "url(/background/img_4.jpg)"};
-    background-size: cover;
+      : "#1e2b35"};
+  background-size: cover;
+  
 
 &::after {
   content: ""; 

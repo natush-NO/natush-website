@@ -10,58 +10,70 @@ const StyledModalOverlay = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.6);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
 `;
 
-const StyledModalContent = styled.div`
-  width: 95vw;
-  height: 80vh;
-  border-radius: 5px;
-  overflow: auto;
-`;
-
 const StyledModalImageContainer = styled.div`
+  border-radius: 5px;
   position: relative;
-  max-width: 900px;
-  height: 700px;
-  margin: 0 auto;
-  display: flex;
-  align-items: flex-start;
-  text-align: start;
+  width: 360px;
+  height: 300px;
+  overflow: auto;
+
+  @media (min-width: 520px) {
+    width: 500px;
+    height: 400px;
+  }
+
+  @media (min-width: 700px) {
+    width: 650px;
+    height: 500px;
+  }
+
+  @media (min-width: 850px) {
+    width: 800px;
+    height: 600px;
+  }
 `;
 
-const StyledCloseButton = styled.button`
+export const StyledCloseButton = styled.button`
   position: absolute;
   top: 10px;
   right: 10px;
   font-size: 50px;
-  background: rgba(0, 0, 0, 0.5);
-  padding: 0 5px 5px 5px;
+  background-color: rgba(0, 0, 0, 0.7);
   border-radius: 5px;
-  color: white;
-  cursor: pointer;
+  padding: 0 5px 5px 5px;
   z-index: 1001;
+  transition: all 0.7s;
+
+  @media (hover: hover) {
+    &:hover {
+      opacity: 0.7;
+      transition: all 0.9s;
+    }
+  }
 `;
 
-const StyledModalImage = styled(Image)`
-  object-fit: contain;
+export const StyledModalImage = styled(Image)`
+  object-fit: content;
   width: 100%;
   height: 100%;
 `;
 
 const StyledMain = styled.main`
-  margin-top: 50px;
-  min-height: 1500px;
+  width: 100%;
+  height: 100%;
 `;
 
 const StyledMainContainer = styled.div`
+  max-width: 1350px;
   padding: 0 15px;
-  width: 100vw;
-  height: 100vh;
+  margin: 0 auto;
 `;
 
 const StyledCertificateContainer = styled.div`
@@ -69,8 +81,8 @@ const StyledCertificateContainer = styled.div`
 `;
 
 const StyledImageContainer = styled.div`
-  width: 600px;
-  height: 400px;
+  width: 350px;
+  height: 300px;
   overflow: hidden;
   border-radius: 5px;
   position: relative;
@@ -80,21 +92,49 @@ const StyledImageContainer = styled.div`
   &:not(:last-child) {
     margin-bottom: 30px;
   }
+
+  @media (min-width: 530px) {
+    width: 500px;
+    height: 350px;
+  }
+
+  @media (min-width: 700px) {
+    width: 600px;
+    height: 400px;
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+    transition: all 1s;
+    opacity: 0;
+  }
+
+  &:hover:after {
+    opacity: 1;
+    transition: all 0.9s;
+  }
 `;
 
 const StyledCertificateImage = styled(Image)`
-  object-fit: cover;
+  object-fit: content;
   width: 100%;
   height: 100%;
 `;
 
-export default function Certificates({ backgroundKnowledge }) {
+export default function Certificates({ backgroundCertificata }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
 
-  const backgroundImage = backgroundKnowledge
-    ? "/background/img_3.webp"
-    : "/background/img_2.webp";
+  const backgroundImage = backgroundCertificata
+    ? "/background/blue_flowers.webp"
+    : "/background/blue_background.webp";
 
   function openModal(imageSrc) {
     setSelectedImage(imageSrc);
@@ -125,7 +165,7 @@ export default function Certificates({ backgroundKnowledge }) {
   return (
     <>
       <GlobalStyle
-        $backgroundKnowledge={backgroundKnowledge}
+        $backgroundKnowledge={backgroundCertificata}
         $backgroundImage={backgroundImage}
       />
       <Header isBack={true} />
@@ -139,7 +179,7 @@ export default function Certificates({ backgroundKnowledge }) {
             >
               <StyledCertificateImage
                 src="/certificate_image/certificate_bootcamp.webp"
-                alt="сертифікат"
+                alt="Certificate"
                 fill
                 sizes="500px"
                 priority
@@ -152,7 +192,7 @@ export default function Certificates({ backgroundKnowledge }) {
             >
               <StyledCertificateImage
                 src="/certificate_image/certificate_html_css_js.webp"
-                alt="сертифікат"
+                alt="Certificate"
                 fill
                 sizes="500px"
                 priority
@@ -165,7 +205,7 @@ export default function Certificates({ backgroundKnowledge }) {
             >
               <StyledCertificateImage
                 src="/certificate_image/certificate_udemy.webp"
-                alt="сертифікат"
+                alt="Certificate"
                 fill
                 sizes="500px"
                 priority
@@ -177,22 +217,20 @@ export default function Certificates({ backgroundKnowledge }) {
 
       {isModalOpen && (
         <StyledModalOverlay>
-          <StyledModalContent>
-            <StyledModalImageContainer>
-              <StyledCloseButton
-                onClick={closeModal}
-                aria-label="Закрити модальне вікно"
-              >
-                &times;
-              </StyledCloseButton>
-              <StyledModalImage
-                src={selectedImage}
-                alt="сертифікат в збільшеному вигляді"
-                fill
-                sizes="800px"
-              />
-            </StyledModalImageContainer>
-          </StyledModalContent>
+          <StyledModalImageContainer>
+            <StyledCloseButton
+              onClick={closeModal}
+              aria-label="Close the modal window"
+            >
+              &times;
+            </StyledCloseButton>
+            <StyledModalImage
+              src={selectedImage}
+              alt="Certificate in enlarged form"
+              fill
+              sizes="800px"
+            />
+          </StyledModalImageContainer>
         </StyledModalOverlay>
       )}
     </>
