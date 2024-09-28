@@ -42,11 +42,7 @@ export default function Header({ isBack, handleShowText, pageCertificate }) {
                 Back
               </StyledNavButton>
             ) : (
-              <StyledNavButton
-                onClick={() =>
-                  router.push("/pageCertificates/pageCertificates")
-                }
-              >
+              <StyledNavButton onClick={() => router.push("/certificates")}>
                 Certificates
               </StyledNavButton>
             )}

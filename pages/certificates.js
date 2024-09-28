@@ -12,7 +12,7 @@ import {
   StyledCertificateContainer,
   StyledImageContainer,
   StyledCertificateImage,
-} from "./StyledpageCertificate";
+} from "@/components/StyledCertificate";
 
 export default function Certificates({
   backgroundCertificata,
@@ -34,7 +34,7 @@ export default function Certificates({
   function closeModal() {
     setIsModalOpen(false);
     setSelectedImage(null);
-    router.push("/pageCertificates/pageCertificates");
+    router.push("/certificates");
   }
 
   useEffect(() => {
