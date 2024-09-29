@@ -28,7 +28,6 @@ export default function Header({ isBack, handleShowText, pageCertificate }) {
                 }
               }}
               type="button"
-              id="backTop"
             >
               About me
             </StyledNavButton>

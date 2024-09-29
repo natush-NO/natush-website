@@ -1,30 +1,23 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import GlobalStyle from "@/styles";
 import Header from "@/components/Header/Header";
 import {
   StyledModalOverlay,
   StyledModalImageContainer,
   StyledCloseButton,
   StyledModalImage,
-  StyledMain,
   StyledMainContainer,
   StyledCertificateContainer,
   StyledImageContainer,
   StyledCertificateImage,
 } from "@/components/StyledCertificate";
 
-export default function Certificates({
-  backgroundCertificata,
-  handleShowText,
-}) {
+import { StyledMain } from "@/components/StyledIndex";
+
+export default function Certificates({ handleShowText }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
   const router = useRouter();
-
-  const backgroundImage = backgroundCertificata
-    ? "/background/blue_flowers.webp"
-    : "/background/blue_flowers.webp";
 
   function openModal(imageSrc) {
     setSelectedImage(imageSrc);
@@ -55,10 +48,6 @@ export default function Certificates({
 
   return (
     <>
-      <GlobalStyle
-        $backgroundKnowledge={backgroundCertificata}
-        $backgroundImage={backgroundImage}
-      />
       <Header
         isBack={true}
         pageCertificate={true}

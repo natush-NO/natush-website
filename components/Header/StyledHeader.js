@@ -4,9 +4,17 @@ import Link from "next/link";
 
 export const StyledHeader = styled.header`
   min-height: 100px;
-  padding: 40px;
+  padding: 40px 0 40px 0;
   font-size: 20px;
-  margin-bottom: 15px;
+  margin-bottom: 30px;
+
+  @media (min-width: 500px) {
+    padding-top: 60px;
+  }
+
+  @media (min-width: 1000px) {
+    margin-bottom: 50px;
+  }
 `;
 
 export const StyledNavHeader = styled.nav`
@@ -17,18 +25,22 @@ export const StyledNavHeader = styled.nav`
 
 export const StyledNavItems = styled.ul`
   font-size: 14px;
+  color: white;
   max-width: 350px;
   display: flex;
-  justify-content: space-between;
-  gap: 5px;
+  flex-direction: column;
+  gap: 15px;
   flex-wrap: wrap;
   align-items: center;
   margin: 0 auto;
-  margin-bottom: 40px;
+  margin-bottom: 50px;
 
   @media (min-width: 500px) {
-    max-width: 400px;
+    max-width: 450px;
     font-size: 18px;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 5px;
   }
 
   @media (min-width: 650px) {
@@ -43,30 +55,34 @@ export const StyledNavItems = styled.ul`
 `;
 
 export const StyledNavItem = styled.li`
-  transition: all 0.6s;
-  background-color: rgba(30, 43, 53, 0.5);
+  min-width: 130px;
+  padding: 10px 0;
+  background-color: rgb(24, 101, 134);
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-
-  &:hover {
-    color: blue;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-`;
-
-export const StyledNavButton = styled.button`
-  padding: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  text-align: center;
   cursor: pointer;
+  transition: all 0.8s;
+
+  @media (hover: hover) {
+    &:hover {
+      color: blue;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+  }
 
   @media (min-width: 450px) {
     padding: 15px;
   }
 `;
 
+export const StyledNavButton = styled.button``;
+
 export const StyledSocialItems = styled.ul`
   max-width: 250px;
   display: flex;
   gap: 10px;
+  flex-wrap: wrap;
   margin: 0 auto;
 
   @media (min-width: 1000px) {
@@ -79,6 +95,7 @@ export const StyledSocialItem = styled.li`
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   transition: all 0.5s;
+
 
 
   @media (hover: hover) {

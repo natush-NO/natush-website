@@ -40,16 +40,14 @@ html {
 }
   
 body {
+  font-family: 'Arima', sans-serif;
   line-height: 1;
-  font-family: system-ui;
+  color: rgb(101, 180, 223);
   color: white;
   min-height: 100%;
   overflow-y: auto;
   overflow-x: hidden;
-  background: ${({ $backgroundImage }) =>
-    $backgroundImage
-      ? `url(${$backgroundImage}) center center no-repeat`
-      : "#1e2b35"};
+  background-image: url("background/background.webp");
   background-size: cover;
   
 
@@ -60,7 +58,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.1); 
+  background-color: rgba(0, 0, 0, 0.5);
   z-index: -1; 
 }
 

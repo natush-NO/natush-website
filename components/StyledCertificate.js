@@ -62,19 +62,20 @@ export const StyledModalImage = styled(Image)`
   height: 100%;
 `;
 
-export const StyledMain = styled.main`
-  min-height: 700px;
-  height: 100%;
-  margin-top: 50px;
-`;
-
 export const StyledMainContainer = styled.div`
   max-width: 1350px;
   padding: 0 15px;
   margin: 0 auto;
+  margin-bottom: 50px;
 `;
 
-export const StyledCertificateContainer = styled.div``;
+export const StyledCertificateContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+`;
 
 export const StyledImageContainer = styled.div`
   width: 350px;
@@ -83,12 +84,7 @@ export const StyledImageContainer = styled.div`
   border-radius: 5px;
   position: relative;
   cursor: pointer;
-  margin: 0 auto;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-
-  &:not(:last-child) {
-    margin-bottom: 30px;
-  }
 
   @media (min-width: 530px) {
     width: 500px;
@@ -107,15 +103,16 @@ export const StyledImageContainer = styled.div`
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(20, 75, 110, 0.265);
     z-index: 1;
-    transition: all 1s;
+    transition: all 0.9s;
     opacity: 0;
   }
 
-  &:hover:after {
-    opacity: 1;
-    transition: all 0.9s;
+  @media (hover: hover) {
+    &:hover:after {
+      opacity: 1;
+    }
   }
 `;
 
