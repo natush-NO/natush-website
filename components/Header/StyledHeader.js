@@ -16,7 +16,7 @@ export const StyledNavHeader = styled.nav`
 `;
 
 export const StyledNavItems = styled.ul`
-  font-size: 16px;
+  font-size: 14px;
   max-width: 350px;
   display: flex;
   justify-content: space-between;
@@ -25,6 +25,11 @@ export const StyledNavItems = styled.ul`
   align-items: center;
   margin: 0 auto;
   margin-bottom: 40px;
+
+  @media (min-width: 500px) {
+    max-width: 400px;
+    font-size: 18px;
+  }
 
   @media (min-width: 650px) {
     max-width: 500px;
@@ -50,15 +55,23 @@ export const StyledNavItem = styled.li`
 `;
 
 export const StyledNavButton = styled.button`
-  padding: 15px;
+  padding: 8px;
   cursor: pointer;
+
+  @media (min-width: 450px) {
+    padding: 15px;
+  }
 `;
 
 export const StyledSocialItems = styled.ul`
-  max-width: 400px;
+  max-width: 250px;
   display: flex;
   gap: 10px;
   margin: 0 auto;
+
+  @media (min-width: 1000px) {
+    max-width: 400px;
+  }
 `;
 
 export const StyledSocialItem = styled.li`
@@ -83,9 +96,14 @@ export const StyledSocialLink = styled(Link)`
   border-radius: 4px;
   position: relative;
 
+  @media (min-width: 600px) {
+    width: 35px;
+    height: 35px;
+  }
+
   @media (min-width: 1000px) {
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
   }
 `;
 

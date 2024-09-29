@@ -63,8 +63,9 @@ export const StyledModalImage = styled(Image)`
 `;
 
 export const StyledMain = styled.main`
-  width: 100%;
+  min-height: 700px;
   height: 100%;
+  margin-top: 50px;
 `;
 
 export const StyledMainContainer = styled.div`
@@ -73,9 +74,7 @@ export const StyledMainContainer = styled.div`
   margin: 0 auto;
 `;
 
-export const StyledCertificateContainer = styled.div`
-  padding-bottom: 50px;
-`;
+export const StyledCertificateContainer = styled.div``;
 
 export const StyledImageContainer = styled.div`
   width: 350px;

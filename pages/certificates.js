@@ -24,7 +24,7 @@ export default function Certificates({
 
   const backgroundImage = backgroundCertificata
     ? "/background/blue_flowers.webp"
-    : "/background/blue_background.webp";
+    : "/background/blue_flowers.webp";
 
   function openModal(imageSrc) {
     setSelectedImage(imageSrc);

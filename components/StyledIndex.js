@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledMain = styled.main`
-  width: 100vw;
+  min-height: 700px;
   height: 100vh;
 `;
 
@@ -37,10 +37,10 @@ export const StyledTextContainer = styled.div`
   background-color: rgba(30, 43, 53, 0.9);
   padding: 30px;
   border-radius: 5px;
-  font-size: 26px;
+  font-size: 22px;
   margin-top: 40px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-  z-index: 1;
+  overflow: auto;
 
   @media (min-width: 800px) {
     font-size: 28px;
@@ -61,7 +61,6 @@ export const StyledCloseButton = styled.button`
   padding: 0 2px 4px 2px;
   transition: all 0.7s;
   transition: all 0.7s;
-  z-index: 2;
 
   @media (hover: hover) {
     &:hover {
