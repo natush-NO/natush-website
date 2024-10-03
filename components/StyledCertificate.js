@@ -17,9 +17,8 @@ export const StyledModalOverlay = styled.div`
 export const StyledModalImageContainer = styled.div`
   border-radius: 5px;
   position: relative;
-  width: 360px;
+  width: 340px;
   height: 300px;
-  overflow: auto;
 
   @media (min-width: 520px) {
     width: 500px;
@@ -41,18 +40,21 @@ export const StyledCloseButton = styled.button`
   position: absolute;
   top: 10px;
   right: 10px;
-  font-size: 50px;
+  font-size: 42px;
   background-color: rgba(0, 0, 0, 0.7);
-  border-radius: 5px;
-  padding: 0 5px 5px 5px;
+  padding: 5px 3px 0 3px;
+
   z-index: 1001;
-  transition: all 0.7s;
 
   @media (hover: hover) {
     &:hover {
       opacity: 0.7;
-      transition: all 0.9s;
     }
+  }
+
+  @media (min-width: 520px) {
+    padding: 7px 5px 0 5px;
+    font-size: 50px;
   }
 `;
 
@@ -62,19 +64,13 @@ export const StyledModalImage = styled(Image)`
   height: 100%;
 `;
 
-export const StyledMainContainer = styled.div`
-  max-width: 1350px;
-  padding: 0 15px;
-  margin: 0 auto;
-  margin-bottom: 50px;
-`;
-
 export const StyledCertificateContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 30px;
+  padding-bottom: 50px;
 `;
 
 export const StyledImageContainer = styled.div`
@@ -105,7 +101,7 @@ export const StyledImageContainer = styled.div`
     height: 100%;
     background-color: rgba(20, 75, 110, 0.265);
     z-index: 1;
-    transition: all 0.9s;
+    transition: opacity 0.9s ease;
     opacity: 0;
   }
 

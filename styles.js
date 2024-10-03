@@ -19,6 +19,9 @@ a {
   text-decoration: none;
   color: inherit;
   display: inline-block;
+  border-radius: 10px;
+  box-shadow: 0 4px 3px 1px rgba(0, 0, 0, 0.3);
+
 }
 li {
   list-style: none;
@@ -42,6 +45,7 @@ html {
 body {
   font-family: 'Arima', sans-serif;
   line-height: 1;
+  font-weight: 600;
   color: rgb(101, 180, 223);
   color: white;
   min-height: 100%;
@@ -62,8 +66,6 @@ body {
   z-index: -1; 
 }
 
-
-/* FORM */
 input,
 button,
 textarea {
@@ -80,8 +82,26 @@ textarea {
 
 label {
   display: inline-block;
+}
 
-button,
+button {
+  cursor: pointer;
+  padding: 15px;
+  text-align: center;
+  overflow: hidden;
+  background-color: rgb(24, 101, 134);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  transition: all 0.8s ease;
+
+  @media (hover: hover) {
+    &:hover {
+      color: blue;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+  }
+}
+
 select,
 option {
   cursor: pointer;

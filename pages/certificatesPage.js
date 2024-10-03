@@ -1,25 +1,24 @@
 import { useState, useEffect } from "react";
-import { useRouter } from "next/router";
 import Header from "@/components/Header/Header";
 import {
   StyledModalOverlay,
   StyledModalImageContainer,
   StyledCloseButton,
   StyledModalImage,
-  StyledMainContainer,
   StyledCertificateContainer,
   StyledImageContainer,
   StyledCertificateImage,
 } from "@/components/StyledCertificate";
 
-import { StyledMain } from "@/components/StyledIndex";
+import { StyledMain, StyledMainContainer } from "@/components/StyledIndex";
 
 export default function Certificates({ handleShowText }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
-  const router = useRouter();
+  const [scrollPosition, setScrollPosition] = useState(0);
 
   function openModal(imageSrc) {
+    setScrollPosition(window.scrollY);
     setSelectedImage(imageSrc);
     setIsModalOpen(true);
   }
@@ -27,7 +26,7 @@ export default function Certificates({ handleShowText }) {
   function closeModal() {
     setIsModalOpen(false);
     setSelectedImage(null);
-    router.push("/certificates");
+    window.scrollTo(0, scrollPosition);
   }
 
   useEffect(() => {

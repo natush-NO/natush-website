@@ -10,86 +10,96 @@ import {
   StyledSocialLink,
   StyledSocialImage,
 } from "./StyledHeader";
+import { StyledMainContainer } from "../StyledIndex";
 
-export default function Header({ isBack, handleShowText, pageCertificate }) {
+const socialLinks = [
+  {
+    href: "https://www.facebook.com/share/1pWFnzSbYqtE1Weo/?mibextid=LQQJ4d",
+    alt: "Facebook",
+    src: "/logos/facebook_logo.webp",
+  },
+  {
+    href: "https://www.instagram.com/natali_othman?igsh=M2l2NmxpZzRwNDFk&utm_source=qr",
+    alt: "Instagram",
+    src: "/logos/instagram_logo.webp",
+  },
+  {
+    href: "https://www.linkedin.com/in/nataliia-osman-1a48152b9/",
+    alt: "LinkedIn",
+    src: "/logos/linkedin-logo.webp",
+  },
+];
+
+export default function Header({
+  isBack,
+  handleShowText,
+  pageCertificate,
+  projectsPage,
+  isBackProject,
+}) {
   const router = useRouter();
+
+  const handleNavigation = (path) => {
+    if (path) {
+      router.push(path).then(() => handleShowText());
+    } else {
+      handleShowText();
+    }
+  };
 
   return (
     <StyledHeader>
-      <StyledNavHeader>
-        <StyledNavItems>
-          <StyledNavItem>
-            <StyledNavButton
-              onClick={() => {
-                if (pageCertificate) {
-                  router.push("/").then(() => handleShowText());
-                } else {
-                  handleShowText();
+      <StyledMainContainer>
+        <StyledNavHeader>
+          <StyledNavItems>
+            <StyledNavItem>
+              <StyledNavButton
+                onClick={() =>
+                  handleNavigation(
+                    pageCertificate || projectsPage ? "/" : undefined
+                  )
                 }
-              }}
-              type="button"
-            >
-              About me
-            </StyledNavButton>
-          </StyledNavItem>
-          <StyledNavItem>
-            <StyledNavButton href="#">My projects</StyledNavButton>
-          </StyledNavItem>
-          <StyledNavItem>
-            {isBack ? (
-              <StyledNavButton onClick={() => router.push("/")}>
-                Back
+                type="button"
+                aria-label="About me"
+              >
+                About me
               </StyledNavButton>
-            ) : (
-              <StyledNavButton onClick={() => router.push("/certificates")}>
-                Certificates
-              </StyledNavButton>
-            )}
-          </StyledNavItem>
-        </StyledNavItems>
+            </StyledNavItem>
 
-        <StyledSocialItems>
-          <StyledSocialItem>
-            <StyledSocialLink
-              href="https://www.facebook.com/share/1pWFnzSbYqtE1Weo/?mibextid=LQQJ4d"
-              target="_blank"
-            >
-              <StyledSocialImage
-                src="/logos/facebook_logo.webp"
-                alt="Facebook"
-                fill
-                sizes="50px"
-              />
-            </StyledSocialLink>
-          </StyledSocialItem>
-          <StyledSocialItem>
-            <StyledSocialLink
-              href="https://www.instagram.com/natali_othman?igsh=M2l2NmxpZzRwNDFk&utm_source=qr"
-              target="_blank"
-            >
-              <StyledSocialImage
-                src="/logos/instagram_logo.webp"
-                alt="Instagram"
-                fill
-                sizes="50px"
-              />
-            </StyledSocialLink>
-          </StyledSocialItem>
-          <StyledSocialItem>
-            <StyledSocialLink
-              href="https://www.linkedin.com/in/nataliia-osman-1a48152b9/"
-              target="_blank"
-            >
-              <StyledSocialImage
-                src="/logos/linkedin-logo.webp"
-                alt="LinkedIn"
-                fill
-                sizes="50px"
-              />
-            </StyledSocialLink>
-          </StyledSocialItem>
-        </StyledSocialItems>
-      </StyledNavHeader>
+            <StyledNavItem>
+              <StyledNavButton
+                onClick={() =>
+                  router.push(isBackProject ? "/" : "/projectsPage")
+                }
+                type="button"
+                aria-label={isBackProject ? "Back" : "My projects"}
+              >
+                {isBackProject ? "Back" : "My projects"}
+              </StyledNavButton>
+            </StyledNavItem>
+
+            <StyledNavItem>
+              <StyledNavButton
+                onClick={() => router.push(isBack ? "/" : "/certificatesPage")}
+                type="button"
+                aria-label={isBack ? "Back" : "Certificates"}
+              >
+                {isBack ? "Back" : "Certificates"}
+              </StyledNavButton>
+            </StyledNavItem>
+          </StyledNavItems>
+
+          <StyledSocialItems>
+            {socialLinks.map(({ href, alt, src }) => (
+              <StyledSocialItem key={alt}>
+                <StyledSocialLink href={href} target="_blank" aria-label={alt}>
+                  <StyledSocialImage src={src} alt={alt} fill sizes="50px" />
+                </StyledSocialLink>
+              </StyledSocialItem>
+            ))}
+          </StyledSocialItems>
+        </StyledNavHeader>
+      </StyledMainContainer>
     </StyledHeader>
   );
 }
