@@ -17,7 +17,7 @@ export const StyledProjectList = styled.li`
 
   @media (min-width: 750px) {
     width: 650px;
-    height: 500px;
+    height: 550px;
   }
 `;
 
@@ -47,11 +47,17 @@ export const StyledImageLink = styled(Link)`
     transform: translateX(-50%);
     width: 100%;
     border-radius: 0 0 10px 10px;
-    font-size: 32px;
+    font-size: 22px;
     color: white;
     background-color: rgba(24, 101, 134, 0.956);
-    padding: 25px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    padding: 15px 0;
     z-index: 1;
+
+    @media (min-width: 530px) {
+      font-size: 28px;
+      padding: 25px 0;
+    }
   }
 
   @media (hover: hover) {

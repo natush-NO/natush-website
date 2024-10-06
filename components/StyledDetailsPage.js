@@ -2,12 +2,23 @@ import styled from "styled-components";
 import Link from "next/link";
 
 export const StyledTitle = styled.h1`
-  font-size: 86px;
+  font-size: 52px;
   margin: 50px 0 70px 0;
+
+  @media (min-width: 500px) {
+    font-size: 62px;
+  }
+
+  @media (min-width: 700px) {
+    font-size: 74px;
+  }
+
+  @media (min-width: 900px) {
+    font-size: 86px;
+  }
 `;
 
 export const StyledDetailsContainer = styled.div`
-  width: 80%;
   padding: 30px;
   background-color: rgb(19, 81, 108);
   border-radius: 10px;
@@ -23,15 +34,19 @@ export const StyledDetailsContainer = styled.div`
   line-height: 1.6;
   margin: 0 auto;
   margin-bottom: 50px;
-
-  @media (min-width: 1200px) {
-    width: 70%;
-  }
 `;
 
 export const StyledFirstLine = styled.p`
   text-align: center;
-  font-size: 32px;
+  font-size: 22px;
+
+  @media (min-width: 800px) {
+    font-size: 28px;
+  }
+
+  @media (min-width: 1200px) {
+    font-size: 32px;
+  }
 `;
 
 export const StyledDescription = styled.p`
