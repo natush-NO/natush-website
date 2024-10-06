@@ -1,7 +1,9 @@
 import { useRouter } from "next/router";
+import { useState, useEffect } from "react";
 import {
   StyledHeader,
   StyledNavHeader,
+  StyledButtonMenu,
   StyledNavItems,
   StyledNavItem,
   StyledNavButton,
@@ -38,6 +40,8 @@ export default function Header({
   isBackProject,
 }) {
   const router = useRouter();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   const handleNavigation = (path) => {
     if (path) {
@@ -47,47 +51,114 @@ export default function Header({
     }
   };
 
+  const toggleMenu = () => {
+    setIsMenuOpen((prev) => !prev);
+  };
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 700);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <StyledHeader>
       <StyledMainContainer>
         <StyledNavHeader>
-          <StyledNavItems>
-            <StyledNavItem>
-              <StyledNavButton
-                onClick={() =>
-                  handleNavigation(
-                    pageCertificate || projectsPage ? "/" : undefined
-                  )
-                }
-                type="button"
-                aria-label="About me"
-              >
-                About me
-              </StyledNavButton>
-            </StyledNavItem>
+          {isMobile && (
+            <StyledButtonMenu onClick={toggleMenu} aria-label="Toggle menu">
+              {isMenuOpen ? "Close" : "Menu"}
+            </StyledButtonMenu>
+          )}
 
-            <StyledNavItem>
-              <StyledNavButton
-                onClick={() =>
-                  router.push(isBackProject ? "/" : "/projectsPage")
-                }
-                type="button"
-                aria-label={isBackProject ? "Back" : "My projects"}
-              >
-                {isBackProject ? "Back" : "My projects"}
-              </StyledNavButton>
-            </StyledNavItem>
+          {isMobile && isMenuOpen && (
+            <StyledNavItems id="burger">
+              <StyledNavItem>
+                <StyledNavButton
+                  onClick={() =>
+                    handleNavigation(
+                      pageCertificate || projectsPage ? "/" : undefined
+                    )
+                  }
+                  type="button"
+                  aria-label="About me"
+                >
+                  About me
+                </StyledNavButton>
+              </StyledNavItem>
 
-            <StyledNavItem>
-              <StyledNavButton
-                onClick={() => router.push(isBack ? "/" : "/certificatesPage")}
-                type="button"
-                aria-label={isBack ? "Back" : "Certificates"}
-              >
-                {isBack ? "Back" : "Certificates"}
-              </StyledNavButton>
-            </StyledNavItem>
-          </StyledNavItems>
+              <StyledNavItem>
+                <StyledNavButton
+                  onClick={() =>
+                    router.push(isBackProject ? "/" : "/projectsPage")
+                  }
+                  type="button"
+                  aria-label={isBackProject ? "Back" : "My projects"}
+                >
+                  {isBackProject ? "Back" : "My projects"}
+                </StyledNavButton>
+              </StyledNavItem>
+
+              <StyledNavItem>
+                <StyledNavButton
+                  onClick={() =>
+                    router.push(isBack ? "/" : "/certificatesPage")
+                  }
+                  type="button"
+                  aria-label={isBack ? "Back" : "Certificates"}
+                >
+                  {isBack ? "Back" : "Certificates"}
+                </StyledNavButton>
+              </StyledNavItem>
+            </StyledNavItems>
+          )}
+
+          {!isMobile && (
+            <StyledNavItems id="burger">
+              <StyledNavItem>
+                <StyledNavButton
+                  onClick={() =>
+                    handleNavigation(
+                      pageCertificate || projectsPage ? "/" : undefined
+                    )
+                  }
+                  type="button"
+                  aria-label="About me"
+                >
+                  About me
+                </StyledNavButton>
+              </StyledNavItem>
+              <StyledNavItem>
+                <StyledNavButton
+                  onClick={() =>
+                    router.push(isBackProject ? "/" : "/projectsPage")
+                  }
+                  type="button"
+                  aria-label={isBackProject ? "Back" : "My projects"}
+                >
+                  {isBackProject ? "Back" : "My projects"}
+                </StyledNavButton>
+              </StyledNavItem>
+              <StyledNavItem>
+                <StyledNavButton
+                  onClick={() =>
+                    router.push(isBack ? "/" : "/certificatesPage")
+                  }
+                  type="button"
+                  aria-label={isBack ? "Back" : "Certificates"}
+                >
+                  {isBack ? "Back" : "Certificates"}
+                </StyledNavButton>
+              </StyledNavItem>
+            </StyledNavItems>
+          )}
 
           <StyledSocialItems>
             {socialLinks.map(({ href, alt, src }) => (

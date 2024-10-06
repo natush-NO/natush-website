@@ -10,6 +10,14 @@ const sharedFlexStyles = css`
   display: flex;
 `;
 
+const sharedButtonSize = css`
+  min-width: 130px;
+`;
+
+const sharedMarginBottom = css`
+  margin-bottom: 50px;
+`;
+
 export const StyledHeader = styled.header`
   min-height: 100px;
   padding: 40px 0;
@@ -25,6 +33,19 @@ export const StyledNavHeader = styled.nav`
   ${sharedContainerStyles};
 `;
 
+export const StyledButtonMenu = styled.button`
+  min-width: 100px;
+  font-size: 18px;
+  padding: 15px 0;
+  ${sharedMarginBottom};
+
+  @media (min-width: 500px) {
+    ${sharedButtonSize};
+    padding: 15px;
+    font-size: 22px;
+  }
+`;
+
 export const StyledNavItems = styled.ul`
   font-size: 14px;
   max-width: 350px;
@@ -33,8 +54,9 @@ export const StyledNavItems = styled.ul`
   gap: 15px;
   flex-wrap: wrap;
   align-items: center;
+  text-alighn: center;
   ${sharedContainerStyles};
-  margin-bottom: 50px;
+  ${sharedMarginBottom};
 
   @media (min-width: 500px) {
     max-width: 450px;
@@ -57,7 +79,7 @@ export const StyledNavItems = styled.ul`
 export const StyledNavItem = styled.li``;
 
 export const StyledNavButton = styled.button`
-  min-width: 130px;
+  ${sharedButtonSize};
 `;
 
 export const StyledSocialItems = styled.ul`
