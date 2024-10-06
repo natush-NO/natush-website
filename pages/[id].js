@@ -51,7 +51,7 @@ export default function ProjectDetails({ projectItems }) {
                 <StyledDescription key={index}>{line}</StyledDescription>
               ))}
           <StyledAppLink
-            href="https://shoppingbuddy.vercel.app/"
+            href="https://shopping-buddy-no.vercel.app/"
             target="_blank"
           >
             To the app &rarr;
