@@ -21,7 +21,7 @@ const socialLinks = [
     src: "/logos/facebook_logo.webp",
   },
   {
-    href: "https://www.instagram.com/natali_othman?igsh=M2l2NmxpZzRwNDFk&utm_source=qr",
+    href: "https://www.instagram.com/natush_no?igsh=M2l2NmxpZzRwNDFk&utm_source=qr",
     alt: "Instagram",
     src: "/logos/instagram_logo.webp",
   },
