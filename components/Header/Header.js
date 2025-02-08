@@ -10,27 +10,10 @@ import {
   StyledSocialItems,
   StyledSocialItem,
   StyledSocialLink,
-  StyledSocialImage,
 } from "./StyledHeader";
 import { StyledMainContainer } from "../StyledIndex";
-
-const socialLinks = [
-  {
-    href: "https://www.facebook.com/share/1pWFnzSbYqtE1Weo/?mibextid=LQQJ4d",
-    alt: "Facebook",
-    src: "/logos/facebook_logo.webp",
-  },
-  {
-    href: "https://www.instagram.com/natush_no?igsh=M2l2NmxpZzRwNDFk&utm_source=qr",
-    alt: "Instagram",
-    src: "/logos/instagram_logo.webp",
-  },
-  {
-    href: "https://www.linkedin.com/in/nataliia-osman-1a48152b9/",
-    alt: "LinkedIn",
-    src: "/logos/linkedin-logo.webp",
-  },
-];
+<FaInstagram size={30} color="#E4405F" />;
+import { FaInstagram, FaFacebook, FaLinkedin } from "react-icons/fa";
 
 export default function Header({
   isBack,
@@ -42,6 +25,7 @@ export default function Header({
   const router = useRouter();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [iconSize, setIconSize] = useState(50);
 
   const handleNavigation = (path) => {
     if (path) {
@@ -58,6 +42,7 @@ export default function Header({
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 700);
+      setIconSize(window.innerWidth < 768 ? 30 : 50);
     };
 
     handleResize();
@@ -67,6 +52,21 @@ export default function Header({
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+
+  const socialImageSvg = [
+    { icon: <FaInstagram size={iconSize} />, alt: "Instagram" },
+    { icon: <FaFacebook size={iconSize} />, alt: "Facebook" },
+    { icon: <FaLinkedin size={iconSize} />, alt: "LinkedIn" },
+  ];
+
+  const socialLinks = [
+    { href: "https://www.instagram.com/natush_no", alt: "Instagram" },
+    {
+      href: "https://www.facebook.com/share/1pWFnzSbYqtE1Weo",
+      alt: "Facebook",
+    },
+    { href: "https://www.linkedin.com/in/nataliia-osman", alt: "LinkedIn" },
+  ];
 
   return (
     <StyledHeader>
@@ -159,15 +159,23 @@ export default function Header({
               </StyledNavItem>
             </StyledNavItems>
           )}
-
           <StyledSocialItems>
-            {socialLinks.map(({ href, alt, src }) => (
-              <StyledSocialItem key={alt}>
-                <StyledSocialLink href={href} target="_blank" aria-label={alt}>
-                  <StyledSocialImage src={src} alt={alt} fill sizes="50px" />
-                </StyledSocialLink>
-              </StyledSocialItem>
-            ))}
+            {socialLinks.map(({ href, alt }) => {
+              const matchingIcon = socialImageSvg.find(
+                (item) => item.alt === alt
+              );
+              return (
+                <StyledSocialItem key={alt}>
+                  <StyledSocialLink
+                    href={href}
+                    target="_blank"
+                    aria-label={alt}
+                  >
+                    {matchingIcon ? matchingIcon.icon : null}
+                  </StyledSocialLink>
+                </StyledSocialItem>
+              );
+            })}
           </StyledSocialItems>
         </StyledNavHeader>
       </StyledMainContainer>

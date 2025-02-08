@@ -1,5 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 
+import "@fontsource/arima";
+
 export default createGlobalStyle`
 
 *,
@@ -8,27 +10,29 @@ export default createGlobalStyle`
   padding: 0;
   margin: 0;
   border: none;
-
   box-sizing: border-box;
 }
+
 *::before,
 *::after {
   display: inline-block;
 }
+
 a {
   text-decoration: none;
   color: inherit;
   display: inline-block;
   border-radius: 10px;
-  box-shadow: 0 4px 3px 1px rgba(0, 0, 0, 0.3);
-
 }
+
 li {
   list-style: none;
 }
+
 img {
   vertical-align: top;
 }
+
 h1,
 h2,
 h3,
@@ -38,6 +42,7 @@ h6 {
   font-weight: inherit;
   font-size: inherit;
 }
+
 html {
   font-size: 10px;
 }
@@ -46,24 +51,23 @@ body {
   font-family: 'Arima', sans-serif;
   line-height: 1;
   font-weight: 600;
-  color: rgb(101, 180, 223);
+  background-color: rgb(101, 180, 223);
   color: white;
-  min-height: 100%;
+  min-height: 100vw;
   overflow-y: auto;
   overflow-x: hidden;
-  background-image: url("background/background.webp");
-  background-size: cover;
-  
+  position: relative;  
 
 &::after {
   content: ""; 
-  position: fixed; 
+  position: absolute; 
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  height: var(--body-height);
+  background-color: rgba(0, 0, 0, 0.4);
   z-index: -1; 
+  }
 }
 
 input,
@@ -73,11 +77,12 @@ textarea {
   font-size: inherit;
   line-height: inherit;
   color: inherit;
-  background-color: transparent;
 }
+
 input,
 textarea {
   width: 100%;
+  background-color: transparent;
 }
 
 label {
@@ -92,12 +97,12 @@ button {
   background-color: rgb(24, 101, 134);
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-  transition: all 0.8s ease;
+  transition: color 0.6s ease-in-out;
 
   @media (hover: hover) {
     &:hover {
-      color: blue;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: color 0.9s ease;
+    color: rgba(0, 0, 255, 0.452);
     }
   }
 }
@@ -106,6 +111,7 @@ select,
 option {
   cursor: pointer;
 }
+
 input[type="text"],
 input[type="email"],
 input[type="tel"],
