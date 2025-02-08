@@ -2,6 +2,7 @@ import { styled } from "styled-components";
 import Header from "@/components/Header/Header";
 import { StyledMain, StyledMainContainer } from "@/components/StyledIndex";
 import ProjectItem from "@/components/ProjectItem/ProjectItem";
+import { StyledBackgroundImgBody } from "@/components/StyledBackgroundImgBody";
 
 export const StyledProjectContainer = styled.ul`
   width: 100%;
@@ -24,24 +25,26 @@ export default function ProjectsPage({
 }) {
   return (
     <>
-      <Header
-        isBackProject={true}
-        projectsPage={true}
-        handleShowText={handleShowText}
-      />
-      <StyledMain>
-        <StyledMainContainer>
-          <StyledProjectContainer>
-            {projectItems.map((project) => (
-              <ProjectItem
-                key={project.id}
-                project={project}
-                isOpen={selectedItemId === project.id}
-              />
-            ))}
-          </StyledProjectContainer>
-        </StyledMainContainer>
-      </StyledMain>
+      <StyledBackgroundImgBody>
+        <Header
+          isBackProject={true}
+          projectsPage={true}
+          handleShowText={handleShowText}
+        />
+        <StyledMain>
+          <StyledMainContainer>
+            <StyledProjectContainer>
+              {projectItems.map((project) => (
+                <ProjectItem
+                  key={project.id}
+                  project={project}
+                  isOpen={selectedItemId === project.id}
+                />
+              ))}
+            </StyledProjectContainer>
+          </StyledMainContainer>
+        </StyledMain>
+      </StyledBackgroundImgBody>
     </>
   );
 }

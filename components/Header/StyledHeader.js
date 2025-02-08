@@ -99,32 +99,30 @@ export const StyledSocialItem = styled.li`
 `;
 
 export const StyledSocialLink = styled(Link)`
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   overflow: hidden;
-  position: relative;
-  transition: opacity 0.7s ease;
+  background-color: rgb(24, 101, 134);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  transition: color 0.6s ease-in;
 
   @media (min-width: 600px) {
-    width: 35px;
-    height: 35px;
+    width: 50px;
+    height: 50px;
   }
 
   @media (min-width: 1000px) {
-    width: 45px;
-    height: 45px;
+    width: 60px;
+    height: 60px;
   }
 
   @media (hover: hover) {
     &:hover {
-      opacity: 0.6;
-      box-shadow: none;
+      color: rgba(0, 0, 255, 0.452);
+      transition: color 0.9s ease;
     }
   }
-`;
-
-export const StyledSocialImage = styled(Image)`
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
 `;
