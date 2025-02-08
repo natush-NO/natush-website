@@ -38,14 +38,14 @@ export default function HomePage({
             <StyledTitleWelcome>Welcome to my page!!!</StyledTitleWelcome>
 
             {showAboutMe && (
-              <StyledTextArticle>
+              <StyledTextArticle id={"aboutMe"}>
                 <StyledCloseButton
                   onClick={closeModal}
                   aria-label="Close the modal window"
                 >
                   &times;
                 </StyledCloseButton>
-                <StyledTextAboutMe id={"aboutMe"}>
+                <StyledTextAboutMe>
                   My name is <StyledSpan>Nataliia Osman,</StyledSpan> a web
                   developer from Ukraine, currently residing in Germany. As a
                   passionate learner, I focus on mastering web development with
