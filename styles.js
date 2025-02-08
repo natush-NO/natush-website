@@ -55,6 +55,7 @@ body {
   color: white;
   min-height: 100vw;
   overflow-y: auto;
+  height: var(--body-height);
   overflow-x: hidden;
   position: relative;  
 

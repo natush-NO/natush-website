@@ -47,7 +47,7 @@ export const StyledTextArticle = styled.article`
   padding: 30px;
   border-radius: 10px;
   font-size: 22px;
-  margin: 60px 0 50px 0;
+  margin-top: 50px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 
   @media (min-width: 800px) {
