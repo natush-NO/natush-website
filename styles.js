@@ -57,15 +57,14 @@ body {
   overflow-y: auto;
   height: var(--body-height);
   overflow-x: hidden;
-  position: relative;  
 
 &::after {
   content: ""; 
-  position: absolute; 
+  position: fixed; 
   top: 0;
   left: 0;
   width: 100%;
-  height: var(--body-height);
+  height: 100%;
   background-color: rgba(0, 0, 0, 0.4);
   z-index: -1; 
   }
