@@ -1,3 +1,4 @@
+import Head from "next/head";
 import GlobalStyle from "@/styles";
 import { useState, useEffect } from "react";
 import projects from "@/lib/projectsData";
@@ -23,6 +24,9 @@ export default function App({ Component, pageProps }) {
 
   return (
     <>
+      <Head>
+        <meta property="og:image" content="/logos/logo_social.jpg" />
+      </Head>
       <GlobalStyle />
       <UpdateOverlayHeight />
       <Component
