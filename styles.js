@@ -51,7 +51,11 @@ body {
   font-family: 'Arima', sans-serif;
   line-height: 1;
   font-weight: 600;
-  background-color: rgb(101, 180, 223);
+  background-color: #07171f;
+  background-image: url("/background/background.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   color: white;
   min-height: 100vw;
   overflow-y: auto;
