@@ -52,7 +52,7 @@ body {
   line-height: 1;
   font-weight: 600;
   background-color: #07171f;
-  background-image: url("public/background/background.jpg");
+  background-image: url("/background/background.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
