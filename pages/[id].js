@@ -43,6 +43,12 @@ export default function ProjectDetails({ projectItems }) {
         <StyledMainContainer>
           <StyledTitle>{project.title}</StyledTitle>
           <StyledDetailsContainer>
+            <StyledAppLink
+              href="https://shopping-buddy-no.vercel.app/"
+              target="_blank"
+            >
+              To the app &rarr;
+            </StyledAppLink>
             <StyledFirstLine>
               {Array.isArray(project.description)
                 ? project.description[0]
@@ -54,12 +60,6 @@ export default function ProjectDetails({ projectItems }) {
                 .map((line, index) => (
                   <StyledDescription key={index}>{line}</StyledDescription>
                 ))}
-            <StyledAppLink
-              href="https://shopping-buddy-no.vercel.app/"
-              target="_blank"
-            >
-              To the app &rarr;
-            </StyledAppLink>
           </StyledDetailsContainer>
           <StyledBackButton onClick={() => router.push("/projectsPage")}>
             Back

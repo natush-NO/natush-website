@@ -15,6 +15,7 @@ export const StyledTitle = styled.h1`
 
   @media (min-width: 900px) {
     font-size: 86px;
+    margin-top: 70px;
   }
 `;
 
@@ -50,8 +51,11 @@ export const StyledFirstLine = styled.p`
 `;
 
 export const StyledDescription = styled.p`
-  font-size: 26px;
-  font-weight: 400;
+  font-size: 22px;
+
+  @media (min-width: 1000px) {
+    font-size: 26px;
+  }
 `;
 
 export const StyledAppLink = styled(Link)`
@@ -63,18 +67,25 @@ export const StyledAppLink = styled(Link)`
   background-color: rgb(24, 101, 134);
   border-radius: 10px;
   transition: all 0.8s ease;
-  margin-top: 30px;
+  margin-bottom: 30px;
 
   @media (hover: hover) {
     &:hover {
       color: blue;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
+
+    @media (min-width: 1000px) {
+      font-size: 32px;
+    }
   }
 `;
 
 export const StyledBackButton = styled.button`
   min-width: 150px;
-  font-size: 32px;
-  margin-bottom: 50px;
+  font-size: 24px;
+
+  @media (min-width: 1000px) {
+    font-size: 32px;
+  }
 `;

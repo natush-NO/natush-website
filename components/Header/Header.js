@@ -25,7 +25,8 @@ export default function Header({
   const router = useRouter();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  const [iconSize, setIconSize] = useState(50);
+  const [iconSizeWidth, setIconSizeWidth] = useState(50);
+  const [iconSizeHeight, setIconSizeHeight] = useState(40);
 
   const handleNavigation = (path) => {
     if (path) {
@@ -42,7 +43,10 @@ export default function Header({
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 700);
-      setIconSize(window.innerWidth < 768 ? 30 : 50);
+      setIconSizeWidth(window.innerWidth < 900 ? 40 : 50);
+      setIconSizeHeight(
+        window.innerWidth < 450 ? 30 : window.innerHeight < 750 ? 35 : 40
+      );
     };
 
     handleResize();
@@ -54,9 +58,18 @@ export default function Header({
   }, []);
 
   const socialImageSvg = [
-    { icon: <FaInstagram size={iconSize} />, alt: "Instagram" },
-    { icon: <FaFacebook size={iconSize} />, alt: "Facebook" },
-    { icon: <FaLinkedin size={iconSize} />, alt: "LinkedIn" },
+    {
+      icon: <FaInstagram size={(iconSizeWidth, iconSizeHeight)} />,
+      alt: "Instagram",
+    },
+    {
+      icon: <FaFacebook size={(iconSizeWidth, iconSizeHeight)} />,
+      alt: "Facebook",
+    },
+    {
+      icon: <FaLinkedin size={(iconSizeWidth, iconSizeHeight)} />,
+      alt: "LinkedIn",
+    },
   ];
 
   const socialLinks = [
@@ -78,7 +91,7 @@ export default function Header({
             </StyledButtonMenu>
           )}
 
-          {isMobile && isMenuOpen && (
+          {(isMobile && isMenuOpen) || !isMobile ? (
             <StyledNavItems id="burger">
               <StyledNavItem>
                 <StyledNavButton
@@ -118,47 +131,8 @@ export default function Header({
                 </StyledNavButton>
               </StyledNavItem>
             </StyledNavItems>
-          )}
+          ) : null}
 
-          {!isMobile && (
-            <StyledNavItems id="burger">
-              <StyledNavItem>
-                <StyledNavButton
-                  onClick={() =>
-                    handleNavigation(
-                      pageCertificate || projectsPage ? "/" : undefined
-                    )
-                  }
-                  type="button"
-                  aria-label="About me"
-                >
-                  About me
-                </StyledNavButton>
-              </StyledNavItem>
-              <StyledNavItem>
-                <StyledNavButton
-                  onClick={() =>
-                    router.push(isBackProject ? "/" : "/projectsPage")
-                  }
-                  type="button"
-                  aria-label={isBackProject ? "Back" : "My projects"}
-                >
-                  {isBackProject ? "Back" : "My projects"}
-                </StyledNavButton>
-              </StyledNavItem>
-              <StyledNavItem>
-                <StyledNavButton
-                  onClick={() =>
-                    router.push(isBack ? "/" : "/certificatesPage")
-                  }
-                  type="button"
-                  aria-label={isBack ? "Back" : "Certificates"}
-                >
-                  {isBack ? "Back" : "Certificates"}
-                </StyledNavButton>
-              </StyledNavItem>
-            </StyledNavItems>
-          )}
           <StyledSocialItems>
             {socialLinks.map(({ href, alt }) => {
               const matchingIcon = socialImageSvg.find(
